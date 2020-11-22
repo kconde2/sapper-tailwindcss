@@ -4,7 +4,11 @@ services:
     build: docker/node
     volumes:
       - "./ui:/ui"
+      - node_modules:/ui/node_modules
     working_dir: /ui
     ports:
       - 3000:3000
       - 10000:10000
+
+volumes:
+  node_modules:

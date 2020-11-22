@@ -6,5 +6,7 @@ RUN apk update && apk upgrade && \
 
 WORKDIR /ui
 
+RUN yarn install
+
 EXPOSE 3000
 CMD [ "yarn", "dev" ]
