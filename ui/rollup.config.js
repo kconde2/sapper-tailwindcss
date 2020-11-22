@@ -9,7 +9,7 @@ import { terser } from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
-import { preprocess } from './svelte.config';
+const { preprocess } = require('./svelte.config');
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -33,8 +33,8 @@ export default {
 			svelte({
 				dev,
 				hydratable: true,
-				preprocess,
 				emitCss: true,
+				preprocess
 			}),
 			url({
 				sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
@@ -84,8 +84,8 @@ export default {
 			svelte({
 				generate: 'ssr',
 				hydratable: true,
-				preprocess,
 				dev,
+				preprocess,
 			}),
 			url({
 				sourceDir: path.resolve(__dirname, 'src/node_modules/images'),

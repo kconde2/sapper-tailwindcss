@@ -1,2 +1,5 @@
-import autoProcess from 'svelte-preprocess';
-export const preprocess = autoProcess({ postcss: true });
+const autoProcess = require('svelte-preprocess');
+
+module.exports = {
+  preprocess: autoProcess({ postcss: true }),
+};

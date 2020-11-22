@@ -1,4 +1,5 @@
-const tailwind = require('tailwindcss');
+const tailwindcss = require('tailwindcss');
+const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const postcssImport = require('postcss-import');
 const presetEnv = require('postcss-preset-env')({
@@ -9,7 +10,7 @@ const presetEnv = require('postcss-preset-env')({
 
 const plugins =
     process.env.NODE_ENV === 'production'
-        ? [postcssImport, tailwind, presetEnv, cssnano]
-        : [postcssImport, tailwind, presetEnv];
+        ? [postcssImport, tailwindcss, autoprefixer, presetEnv, cssnano]
+        : [postcssImport, tailwindcss, presetEnv];
 
 module.exports = { plugins };

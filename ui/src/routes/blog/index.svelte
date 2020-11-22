@@ -1,21 +1,23 @@
-<script context="module" lang="ts">
-	export function preload() {
-		return this.fetch(`blog.json`).then((r: { json: () => any; }) => r.json()).then((posts: { slug: string; title: string, html: any }[]) => {
-			return { posts };
-		});
-	}
-</script>
-
-<script lang="ts">
-	export let posts: { slug: string; title: string, html: any }[];
-</script>
-
 <style>
 	ul {
 		margin: 0 0 1em 0;
 		line-height: 1.5;
 	}
 </style>
+
+<script context="module" lang="ts">
+	export function preload() {
+		return this.fetch(`blog.json`)
+			.then((r: { json: () => any }) => r.json())
+			.then((posts: { slug: string; title: string; html: any }[]) => {
+				return { posts };
+			});
+	}
+</script>
+
+<script lang="ts">
+	export let posts: { slug: string; title: string; html: any }[];
+</script>
 
 <svelte:head>
 	<title>Blog</title>
