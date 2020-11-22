@@ -1,0 +1,10 @@
+version: "2"
+services:
+  node:
+    build: docker/node
+    volumes:
+      - "./ui:/ui"
+    working_dir: /ui
+    ports:
+      - 3000:3000
+      - 10000:10000
